@@ -1,0 +1,15 @@
+name: "PHP Setup"
+description: "Sets up PHP with specified extensions."
+inputs:
+  php-version:
+    description: "The PHP version to install (e.g., '8.0' or 'latest')."
+    required: true
+    default: "latest"
+  extensions:
+    description: "Comma-separated list of PHP extensions to install."
+    required: false
+    default: ""
+
+runs:
+  using: "docker"
+  image: "Dockerfile"
