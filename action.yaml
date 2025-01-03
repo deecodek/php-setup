@@ -1,15 +1,6 @@
-name: 'PHP Setup'
-description: 'Setup PHP with required extensions'
-
-inputs:
-  php-version:
-    description: 'PHP version to install'
-    required: true
-    default: '8.4'
-  extensions:
-    description: 'Comma-separated list of PHP extensions to install'
-    required: true
-
-runs:
-  using: 'docker'
-  image: 'Dockerfile'
+- name: Setup PHP
+  uses: deecodek/php-setup  # Replace with your GitHub username and repository
+  with:
+    php-version: '8.4'  # Specify PHP 8.4
+    extensions: bcmath,bz2,calendar,exif,gd,gettext,imagick,intl,mbstring,mysqli,opcache,pcntl,pdo,pdo_mysql,pdo_pgsql,soap,sockets,sysvmsg,sysvsem,sysvshm,xml,xsl,zip,redis,gmp,tidy  # List all extensions
+    dockerfile: 'Dockerfile'  # Specify the Dockerfile if it's not in the default location
