@@ -1,0 +1,23 @@
+name: PHP Setup
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup PHP
+        uses: deecodek/php-setup@v1.0  
+        with:
+          php-version: '8.4' 
+          extensions: bcmath,bz2,calendar,exif,gd,gettext,imagick,intl,mbstring,mysqli,opcache,pcntl,pdo,pdo_mysql,pdo_pgsql,soap,sockets,sysvmsg,sysvsem,sysvshm,xml,xsl,zip,redis,gmp,tidy  # List all extensions
+
+      - name: Run Composer install
+        run: composer install
+
+      - name: Run tests
+        run: vendor/bin/phpunit
